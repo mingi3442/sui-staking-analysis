@@ -8,7 +8,7 @@ export const Enterprise = () => {
 
   return (
     <div className="relative group" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
-      <p className="hover:text-black dark:hover:text-white font-medium text-sm text-gray-700 dark:text-gray-200 cursor-pointer">Enterprise</p>
+      <p className="hover:text-black dark:hover:text-white font-medium text-sm text-zinc-500 dark:text-zinc-400 cursor-pointer">Enterprise</p>
       {isHovered && (
         <div className="absolute bottom-[calc(100%+3px)] left-1/2 -translate-x-1/2 w-64 z-10">
           <div className="relative z-1 bg-white dark:bg-zinc-900 rounded-lg shadow-xl">

@@ -23,7 +23,7 @@ export const Footer = () => {
             {link.label}
           </FooterLink>
         ))}
-        <p className="text-sm font-medium text-gray-700 dark:text-gray-300">2024©StakingRewards.</p>
+        <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400">2024©StakingRewards.</p>
       </div>
     </div>
   );
