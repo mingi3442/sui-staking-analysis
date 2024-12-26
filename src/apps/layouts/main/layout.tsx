@@ -1,9 +1,9 @@
-import "@/app/styles/index.css";
 import { NextThemeProvider, TanstackQueryProvider } from "@/apps/providers";
 import { FeedBack } from "@/widgets/feedback";
 import { Footer } from "@/widgets/footer";
 import { SideNavigationBar } from "@/widgets/side-navigation/ui";
 import type { Metadata } from "next";
+import "../../styles/index.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
