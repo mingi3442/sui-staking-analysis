@@ -10,6 +10,15 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      keyframes: {
+        growUp: {
+          "0%": { transform: "scaleY(0)" },
+          "100%": { transform: "scaleY(1)" },
+        },
+      },
+      animation: {
+        "grow-up": "growUp 1s ease-out forwards",
+      },
     },
   },
   plugins: [],

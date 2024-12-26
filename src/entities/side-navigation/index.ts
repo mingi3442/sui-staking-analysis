@@ -1,1 +1,1 @@
-export { useSidebarStore } from "./model/store";
+export * from "./model";
