@@ -20,6 +20,9 @@ export const PerformanceChartContent = () => {
 
   const handleFilterClick = (id: string, exclusive?: boolean) => {
     setSelectedFilters((prev) => {
+      if (prev.length === 1 && prev.includes(id)) {
+        return prev;
+      }
       if (exclusive) {
         const nonExclusiveFilters = prev.filter((f) => !CHART_FILTER_OPTIONS.find((opt) => opt.id === f)?.exclusive);
         return prev.includes(id) ? nonExclusiveFilters : [id, ...nonExclusiveFilters];
