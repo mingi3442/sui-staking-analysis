@@ -9,6 +9,7 @@ export const ChartSection = () => {
     <div className="w-full py-4">
       <AnalyticsContentHeader title={CHART_HEADER_TITLE} description={CHART_HEADER_DESCRIPTION} clipboardUrl={window.location.href} />
       <AnalyticsContentContainer
+        className="bg-zinc-200 dark:bg-zinc-800 "
         tabs={CHART_TABS}
         activeTab={activeTab}
         onTabChange={setActiveTab}
@@ -16,7 +17,6 @@ export const ChartSection = () => {
         footerDescription={CHART_FOOTER_DESCRIPTION}
         contents={CHART_TAB_CONTENTS}
       />
-      {/* <ChartContainer /> */}
     </div>
   );
 };

@@ -1,1 +1,2 @@
-export { ThemeProvider } from './theme-provider';
+export * from "./next-theme";
+export * from "./tanstack-query";

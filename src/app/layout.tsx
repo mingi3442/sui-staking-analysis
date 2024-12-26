@@ -2,7 +2,7 @@ import { FeedBack } from "@/widgets/feedback";
 import { Footer } from "@/widgets/footer";
 import { SideNavigationBar } from "@/widgets/side-navigation/ui";
 import type { Metadata } from "next";
-import { ThemeProvider } from "./providers";
+import { NextThemeProvider, TanstackQueryProvider } from "./providers";
 import "./styles/index.css";
 
 export const metadata: Metadata = {
@@ -19,16 +19,18 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body className="bg-white text-black dark:bg-zinc-900 dark:text-white">
-        <ThemeProvider>
-          <div className="flex w-full min-h-screen">
-            <SideNavigationBar />
-            <div className="w-11/12 min-h-screen flex flex-col items-center mx-auto px-72">
-              {children}
-              <Footer />
+        <TanstackQueryProvider>
+          <NextThemeProvider>
+            <div className="flex w-full min-h-screen">
+              <SideNavigationBar />
+              <div className="w-2/3 min-h-screen flex flex-col items-center mx-auto px-72">
+                {children}
+                <Footer />
+              </div>
+              <FeedBack />
             </div>
-            <FeedBack />
-          </div>
-        </ThemeProvider>
+          </NextThemeProvider>
+        </TanstackQueryProvider>
       </body>
     </html>
   );

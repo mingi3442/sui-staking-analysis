@@ -1,5 +1,5 @@
 import { AnalyticsContentProps } from "../../common/types";
-import { ChartContainer } from "../ui/components";
+import { PerformanceChartContent } from "../ui/components";
 
 export const CHART_FOOTER_TITLE = "Sui Staking is trending upwards this month";
 
@@ -10,5 +10,12 @@ export const CHART_HEADER_TITLE = "SUI Staking Performance Charts";
 
 export const CHART_HEADER_DESCRIPTION = "Track Sui staking over time by analyzing key performance metrics.";
 
-export const CHART_TAB_CONTENTS: AnalyticsContentProps[] = [{ key: "Performance over Time", component: ChartContainer }];
+export const CHART_TAB_CONTENTS: AnalyticsContentProps[] = [{ key: "Performance over Time", component: PerformanceChartContent }];
 export const CHART_TABS: string[] = ["Performance over Time"];
+
+export const CHART_FILTER_OPTIONS: ChartFilterOptionProps[] = [
+  { id: "price", label: "Price", color: "#9333EA", dataKey: "price" },
+  { id: "staked", label: "Staked SUI", color: "#38bdf8", dataKey: "staked" },
+  { id: "reward", label: "Reward Rate", color: "#1d4ed8", dataKey: "reward", exclusive: true },
+  { id: "inflation", label: "Inflation Rate", color: "#15803d", dataKey: "inflation", exclusive: true },
+] as const;

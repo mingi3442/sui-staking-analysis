@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 
-// GET 요청 처리
 export async function GET() {
   const data = {
     status: "success",
@@ -17,7 +16,6 @@ export async function GET() {
   return NextResponse.json(data);
 }
 
-// POST 요청 처리
 export async function POST(request: Request) {
   const body = await request.json();
 
@@ -29,7 +27,6 @@ export async function POST(request: Request) {
   });
 }
 
-// 에러 응답 예시
 export async function PUT() {
   return NextResponse.json(
     {

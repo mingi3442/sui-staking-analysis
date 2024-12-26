@@ -1,9 +1,10 @@
 import { Tab } from "@/shared/ui/tab";
+import { tcm } from "@/shared/utils";
 import * as React from "react";
 import { AnalyticsContentProps } from "../../types";
-import { Footer, TabContent } from "./components";
+import { DataSources, Footer, TabContent } from "./components";
 
-interface AnalyticsContentContainerProps {
+interface AnalyticsContentContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   tabs: string[];
   children?: React.ReactNode;
   footerTitle: string;
@@ -13,12 +14,24 @@ interface AnalyticsContentContainerProps {
   contents: AnalyticsContentProps[];
 }
 
-export const AnalyticsContentContainer = ({ tabs, children, footerTitle, footerDescription, onTabChange, activeTab, contents }: AnalyticsContentContainerProps) => {
+export const AnalyticsContentContainer: React.FC<AnalyticsContentContainerProps> = ({
+  tabs,
+  children,
+  footerTitle,
+  footerDescription,
+  onTabChange,
+  activeTab,
+  contents,
+  className,
+}) => {
   return (
-    <div className="bg-zinc-100 dark:bg-zinc-900 rounded-lg overflow-hidden">
+    <div className="bg-zinc-100 dark:bg-zinc-800/60 border border-zinc-300 dark:border-zinc-800 rounded-lg overflow-hidden">
       <Tab tabs={tabs} activeTab={activeTab} onTabChange={onTabChange} />
 
-      <div className="w-full h-full border-y border-zinc-300 dark:border-zinc-800">{children ?? <TabContent activeTab={activeTab} tabConfigs={contents} />}</div>
+      <div className={tcm("w-full h-full py-2 border-y border-zinc-300 dark:border-zinc-800/60", className)}>
+        {children ?? <TabContent activeTab={activeTab} tabConfigs={contents} />}
+        <DataSources />
+      </div>
       <Footer title={footerTitle} description={footerDescription} />
     </div>
   );

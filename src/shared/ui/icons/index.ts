@@ -3,6 +3,7 @@ export { Clip } from "./Clip";
 export { Dark } from "./Dark";
 export { Discord } from "./Discord";
 export { Discover } from "./Discover";
+export { Expansion } from "./Expansion";
 export { Light } from "./Light";
 export { Logo } from "./Logo";
 export { Open } from "./Open";

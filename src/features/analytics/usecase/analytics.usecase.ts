@@ -1,3 +1,3 @@
 export interface AnalyticsUsecase {
-  getChartData: () => void;
+  getAnalyticsChartData: () => Promise<ChartDataResult[]>;
 }
