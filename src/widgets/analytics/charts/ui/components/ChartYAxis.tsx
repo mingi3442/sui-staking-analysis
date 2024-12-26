@@ -8,17 +8,6 @@ interface ChartYAxisProps {
 }
 
 export const ChartYAxis: React.FC<ChartYAxisProps> = ({ option, index, data }) => {
-  console.log('ChartYAxis FULL option:', JSON.stringify(option, null, 2));
-  console.log('ChartYAxis data length:', data?.length);
-  console.log('ChartYAxis option.dataKey:', option.dataKey);
-
-  if (!data || data.length === 0) {
-    console.warn('ChartYAxis: No data provided');
-    return null;
-  }
-
-  console.log('ChartYAxis option:', option);
-  console.log('ChartYAxis data:', data);
   const values = data.map((item) => item[option.dataKey] as number);
   const min = Math.min(...values);
   const max = Math.max(...values);

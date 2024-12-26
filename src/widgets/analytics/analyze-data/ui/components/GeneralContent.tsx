@@ -1,15 +1,21 @@
+"use client";
+import { AnalyticsService } from "@/features/analytics";
+import { Loading } from "@/shared/ui/loading";
+import { useQuery } from "@tanstack/react-query";
 import { MetricCard } from "./MetricCard";
 
 export const GeneralContent = () => {
+  const { data, isPending } = useQuery({
+    queryKey: ["getAnalyticsGeneralMetric"],
+    queryFn: () => AnalyticsService().getAnalyticsGeneralMetric(),
+  });
+  if (isPending || !data) return <Loading />;
   return (
-    <div className="p-8">
-      <div className="grid  grid-cols-[repeat(auto-fill,200px)] gap-4">
-        <MetricCard title="Reward Rate" value="5.71%" position={50} change={{ value: 12.1, isPositive: true }} />
-        <MetricCard title="Total Staked" value="$1,000,000" position={20} change={{ value: 10, isPositive: false }} />
-        <MetricCard title="Total Staked" value="$1,000,000" position={10} change={{ value: 10, isPositive: true }} />
-        <MetricCard title="Total Staked" value="$1,000,000" position={50} change={{ value: 10, isPositive: true }} />
-        <MetricCard title="Total Staked" value="$1,000,000" position={50} change={{ value: 10, isPositive: true }} />
-        <MetricCard title="Total Staked" value="$1,000,000" position={50} change={{ value: 10, isPositive: true }} />
+    <div className="p-8 pb-2">
+      <div className="grid grid-rows-[repeat(auto-fill,minmax(120px,1fr))] grid-cols-[repeat(auto-fill,220px)] gap-4">
+        {data.map((item) => (
+          <MetricCard key={item.title} title={item.title} value={item.value} position={item.position} changeRate={item.changeRate} />
+        ))}
       </div>
     </div>
   );
