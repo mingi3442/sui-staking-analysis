@@ -23,7 +23,7 @@ export function RootLayout({
           <NextThemeProvider>
             <div className="flex w-full min-h-screen">
               <SideNavigationBar />
-              <div className="w-2/3 min-h-screen flex flex-col items-center mx-auto px-72">
+              <div className="min-w-2/3 min-h-screen flex flex-col items-center mx-auto px-72">
                 {children}
                 <Footer />
               </div>

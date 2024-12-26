@@ -9,7 +9,7 @@ export const Header = () => {
   const pathname = usePathname();
 
   return (
-    <div className="sticky z-20 top-0 w-full bg-white dark:bg-zinc-900 h-16 ">
+    <div className="sticky z-20 top-0 w-full bg-white dark:bg-zinc-900 h-16">
       <div className="px-4 flex items-center justify-between">
         <div className="flex items-center gap-x-2">
           <Logo className="w-8 h-8 flex-shrink-0 text-blue-700 dark:text-white" />

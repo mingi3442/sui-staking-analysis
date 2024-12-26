@@ -4,7 +4,7 @@ import { Header } from "@/widgets/header";
 
 export const AnalyticsPage = () => {
   return (
-    <div className="w-full h-full relative">
+    <div className="min-h-96 w-full h-full relative">
       <Header />
       <div className=" border-t-2 border-black/10 dark:border-white/10 pb-4 w-full h-full">
         <ChartSection />
