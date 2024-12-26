@@ -1,7 +1,8 @@
 import axios, { AxiosInstance } from "axios";
 
 export const axiosInstance: AxiosInstance = axios.create({
-  baseURL: "http://localhost:3000/api/",
+  // * 배포를 위한 임시 URL
+  baseURL: `${window.location.origin}/api/`,
 });
 
 axiosInstance.interceptors.request.use(
