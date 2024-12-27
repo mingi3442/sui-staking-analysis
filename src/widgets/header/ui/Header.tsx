@@ -37,6 +37,7 @@ export const Header = () => {
         <div className="flex items-center gap-x-4">
           {HEADER_MENU_ITEMS.map((item) => (
             <Link
+              prefetch={false}
               key={item.name}
               href={item.href}
               className={tcm(
