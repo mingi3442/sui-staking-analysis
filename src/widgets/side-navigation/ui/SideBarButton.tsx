@@ -21,6 +21,7 @@ export const SideBarButton: React.FC<SideBarButtonProps> = ({ path, iconName, la
   return (
     <Button
       component={Link}
+      prefetch={false}
       href={path}
       className={tcm(
         "group relative flex items-center p-4 hover:bg-gray-100 dark:hover:bg-gray-800",

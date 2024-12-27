@@ -10,6 +10,7 @@ export const EnterpriseLink = ({ href, children }: EnterpriseLinkProps) => {
   return (
     <Link
       href={href}
+      prefetch={false}
       target="_blank"
       rel="noopener noreferrer"
       className="block p-2 rounded-lg border border-transparent transition-all duration-200 hover:bg-gradient-to-r hover:from-white/5 hover:to-blue-600/15 hover:border-blue-700"

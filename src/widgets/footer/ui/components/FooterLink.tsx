@@ -8,7 +8,7 @@ interface NavLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 
 export const FooterLink: React.FC<NavLinkProps> = ({ href, children, className, ...props }) => {
   return (
-    <Link href={href} className={tcm("hover:underline hover:text-black font-medium text-sm text-zinc-500 dark:text-zinc-400", className)} {...props}>
+    <Link prefetch={false} href={href} className={tcm("hover:underline hover:text-black font-medium text-sm text-zinc-500 dark:text-zinc-400", className)} {...props}>
       {children}
     </Link>
   );
