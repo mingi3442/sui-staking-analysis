@@ -29,7 +29,7 @@ export const SideBarButton: React.FC<SideBarButtonProps> = ({ path, iconName, la
       )}
     >
       {IconComponent && <IconComponent className="w-4 h-4 flex-shrink-0" />}
-      <Tooltip label={label} show={!isExpanded} />
+      <Tooltip label={label} isShow={!isExpanded} />
       <div className={tcm("overflow-hidden transition-[width,margin] duration-200 ease-[cubic-bezier(0.4,0,0.2,1)]", isExpanded ? "ml-4 w-20" : "w-0 ml-0")}>
         <span className="truncate whitespace-nowrap">{label}</span>
       </div>
