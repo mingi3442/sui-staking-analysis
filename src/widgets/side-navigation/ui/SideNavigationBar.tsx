@@ -1,8 +1,8 @@
 "use client";
 import { tcm } from "@/shared/libs";
 import * as React from "react";
-import { SIDE_NAVIGATION_BAR_MENU_ITEMS } from "../constants/side-navigation.const";
 import { useSideNavigationStore } from "../stores/side-navigation.store";
+import { SIDE_NAVIGATION_BAR_MENU_ITEMS } from "./constants/side-navigation.const";
 import { SideBarButton } from "./SideBarButton";
 import { ThemeToggle } from "./ThemeToggle";
 import { ToggleButton } from "./ToggleButton";

@@ -17,7 +17,7 @@ export const SIDE_NAVIGATION_BAR_MENU_ITEMS: {
   label: string;
   href: string;
 }[] = [
-  { icon: "Discover", label: "Discover", href: "/discover" },
+  { icon: "Discover", label: "Discover", href: "/" },
   { icon: "Swap", label: "Swap", href: "/swap" },
   { icon: "Stake", label: "Stake", href: "/stake" },
   { icon: "Optimize", label: "Optimize", href: "/optimize" },

@@ -18,10 +18,9 @@ export const ChartXAxis: React.FC<ChartXAxisProps> = ({ dates }) => {
         const date = new Date(value);
         return format(date, "MMM dd, yyyy");
       }}
-      stroke="#6B7280"
       tickLine={false}
       tick={{
-        fill: "#3f3f46",
+        fill: "#6B7280",
         fontSize: 12,
         fontWeight: 800,
       }}

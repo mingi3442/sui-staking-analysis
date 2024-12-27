@@ -3,7 +3,7 @@ import { CHART_FILTER_OPTIONS } from "../constants/analytics-charts.const";
 
 interface ChartControllerProps {
   selectedFilters: string[];
-  handleFilterClick: (id: string, exclusive?: boolean) => void;
+  handleFilterClick: (id: string) => void;
 }
 
 // * 차트의 필터 컨트롤러 컴포넌트
@@ -13,9 +13,17 @@ export const ChartController = ({ selectedFilters, handleFilterClick }: ChartCon
       <div className="flex items-center gap-x-2 ">
         <span className="text-xs font-semibold text-gray-500">Compare up to 3 at a time:</span>
         {CHART_FILTER_OPTIONS.map((option) => (
-          <button key={option.id} onClick={() => handleFilterClick(option.id, option.exclusive)} className={`flex items-center gap-x-1 px-1 py-1 `}>
+          <button
+            key={option.id}
+            onClick={() => handleFilterClick(option.id)}
+            className={`flex items-center gap-x-1 px-1 py-1`}
+            disabled={selectedFilters.length >= 3 && !selectedFilters.includes(option.id)}
+          >
             <div
-              className={`w-3 h-3 rounded-full text-sm ${selectedFilters.includes(option.id) ? "" : "border"}`}
+              className={tcm(
+                `w-3 h-3 rounded-full text-sm ${selectedFilters.includes(option.id) ? "" : "border"}`,
+                selectedFilters.includes(option.id) ? `bg-[${option.color}]` : "transparent"
+              )}
               style={{
                 backgroundColor: selectedFilters.includes(option.id) ? option.color : "transparent",
                 borderColor: selectedFilters.includes(option.id) ? option.color : "#6B7280",

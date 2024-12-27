@@ -4,7 +4,6 @@ import { AnalyticsService } from "@/features/analytics";
 import { Loading } from "@/shared/ui/loading";
 import { useQuery } from "@tanstack/react-query";
 import * as React from "react";
-import { CHART_FILTER_OPTIONS } from "../constants/analytics-charts.const";
 import { ChartContainer } from "./ChartContainer";
 import { ChartController } from "./ChartController";
 
@@ -16,17 +15,9 @@ export const PerformanceChartContent = () => {
     queryFn: AnalyticsService().getAnalyticsChartData,
   });
 
-  const handleFilterClick = (id: string, exclusive?: boolean) => {
-    setSelectedFilters((prev) => {
-      // * Reward Rate, inflation Rate의 경우에는 동시에 하나만 활성화하기 위한 로직
-      if (exclusive) {
-        const nonExclusiveFilters = prev.filter((f) => !CHART_FILTER_OPTIONS.find((opt) => opt.id === f)?.exclusive);
-        return prev.includes(id) ? nonExclusiveFilters : [id, ...nonExclusiveFilters];
-      }
-      // * 필터가 선택되어 있지 않은 경우 제거
-      // * 필터가 하나 남았을 경우 마지막 필터 제거를 방지
-      return prev.includes(id) ? (prev.length === 1 ? prev : prev.filter((item) => item !== id)) : [id, ...prev];
-    });
+  const handleFilterClick = (id: string) => {
+    // * 최대 3개의 필터만 선택 가능
+    setSelectedFilters((prev) => (prev.includes(id) ? (prev.length === 1 ? prev : prev.filter((item) => item !== id)) : prev.length < 3 ? [id, ...prev] : prev));
   };
 
   if (isLoading || !data) return <Loading />;

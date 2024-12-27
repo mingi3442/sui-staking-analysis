@@ -22,8 +22,8 @@ export const CHART_TABS: string[] = ["Performance over Time"] as const;
 
 // * 차트 필터
 export const CHART_FILTER_OPTIONS: ChartFilterOptionProps[] = [
-  { id: "price", label: "Price", color: "#9333EA", dataKey: "price", exclusive: false },
-  { id: "staked", label: "Staked SUI", color: "#38bdf8", dataKey: "staked", exclusive: false },
-  { id: "reward", label: "Reward Rate", color: "#1d4ed8", dataKey: "reward", exclusive: true },
-  { id: "inflation", label: "Inflation Rate", color: "#15803d", dataKey: "inflation", exclusive: true },
+  { id: "price", label: "Price", color: "#9333EA", dataKey: "price" },
+  { id: "staked", label: "Staked SUI", color: "#38bdf8", dataKey: "staked" },
+  { id: "reward", label: "Reward Rate", color: "#1d4ed8", dataKey: "reward" },
+  { id: "inflation", label: "Inflation Rate", color: "#15803d", dataKey: "inflation" },
 ] as const;

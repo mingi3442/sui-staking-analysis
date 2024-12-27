@@ -4,7 +4,7 @@ import { Button } from "@/shared/ui";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import * as React from "react";
-import { ICONS } from "../constants/side-navigation.const";
+import { ICONS } from "./constants/side-navigation.const";
 import { Tooltip } from "./Tooltip";
 
 interface SideBarButtonProps {
@@ -25,7 +25,7 @@ export const SideBarButton: React.FC<SideBarButtonProps> = ({ path, iconName, la
       className={tcm(
         "group relative flex items-center p-4 hover:bg-gray-100 dark:hover:bg-gray-800",
         isExpanded ? "justify-start" : "justify-center",
-        pathname === path ? "border-r-2 text-blue-700 dark:text-blue-600 border-blue-700 dark:border-blue-600" : "text-gray-700 dark:text-gray-300"
+        pathname === path ? "border-r-2 text-blue-700  border-blue-700 dark:text-sky-500 dark:border-sky-500" : "text-gray-700 dark:text-gray-300"
       )}
     >
       {IconComponent && <IconComponent className="w-4 h-4 flex-shrink-0" />}
