@@ -1,10 +1,9 @@
+// * 차트 데이터 키
+export type ChartDataKeyType = "price" | "staked" | "reward" | "inflation";
+
 // * 차트 데이터 모델
-export interface Chart {
-  date: Date;
-  price: number;
-  staked: number;
-  reward: number;
-  inflation: number;
-  fullDate: string;
-  [key: string]: string | number | Date;
-}
+export type Chart = {
+  [key in ChartDataKeyType]: number;
+} & {
+  date: number;
+};

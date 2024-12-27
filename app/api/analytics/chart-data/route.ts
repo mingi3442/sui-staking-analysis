@@ -1,12 +1,11 @@
 import { NextResponse } from "next/server";
 
 interface DataProps {
-  date: string;
+  date: number;
   price: number;
   staked: number;
   reward: number;
   inflation: number;
-  fullDate: string;
 }
 
 const generateData = (): DataProps[] => {
@@ -18,12 +17,11 @@ const generateData = (): DataProps[] => {
     currentDate.setDate(startDate.getDate() + i);
 
     data.push({
-      date: currentDate.toLocaleDateString(),
+      date: currentDate.getTime(),
       price: 3.13 + Math.random() * 2,
       staked: 7.793 + Math.random() * 0.1,
       reward: 5 + Math.random() * 2,
       inflation: 7 + Math.random() * 1,
-      fullDate: currentDate.toISOString(),
     });
   }
   return data;

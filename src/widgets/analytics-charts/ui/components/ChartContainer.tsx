@@ -14,10 +14,12 @@ interface ChartContainerProps {
 }
 
 export const ChartContainer: React.FC<ChartContainerProps> = ({ selectedFilters, setSelectedFilters, chartData }) => {
-  const visibleDates = React.useMemo(() => {
+  // * 차트의 X축에 보이는 날짜를 정리
+  // * useMemo를 이용해서 불필요한 재계산을 제거
+  const dates = React.useMemo(() => {
     if (!chartData) return [];
     const targetDates = [3, 12, 21, 30];
-    return chartData.filter((_, index) => targetDates.includes(index)).map((item) => item.fullDate);
+    return chartData.filter((_, index) => targetDates.includes(index)).map((item) => item.date);
   }, [chartData]);
 
   return (
@@ -25,7 +27,7 @@ export const ChartContainer: React.FC<ChartContainerProps> = ({ selectedFilters,
       <div className="flex-1 relative px-4" style={{ height: "400px" }}>
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={chartData} margin={{ top: 40, right: 20, left: 20, bottom: 0 }}>
-            {ChartXAxis({ visibleDates })}
+            {ChartXAxis({ dates })}
             {selectedFilters.map((filterId, index) => {
               const option = CHART_FILTER_OPTIONS.find((opt) => opt.id === filterId)!;
               return ChartYAxis({ option, index, data: chartData });

@@ -10,7 +10,7 @@ export const ChartTooltip = ({ active, payload }: ChartTooltipProps) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-zinc-200 dark:bg-zinc-800 p-2 rounded border border-zinc-300 dark:border-zinc-700 shadow-sm">
-        <p className="text-xs font-bold text-zinc-600 dark:text-zinc-400">{format(new Date(payload[0].payload.fullDate), "MMM dd, yyyy")}</p>
+        <p className="text-xs font-bold text-zinc-600 dark:text-zinc-400">{format(new Date(payload[0].payload.date), "MMM dd, yyyy")}</p>
         {payload.map((entry) => (
           <div className="flex items-center gap-x-2" key={entry.name}>
             <div style={{ backgroundColor: entry.color, width: "8px", height: "8px", borderRadius: "50%" }}></div>

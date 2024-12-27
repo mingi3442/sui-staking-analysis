@@ -1,17 +1,19 @@
+import { Chart } from "@/entities/chart";
 import { format } from "date-fns";
 import React from "react";
 import { XAxis } from "recharts";
 
 interface ChartXAxisProps {
-  visibleDates: string[];
+  dates: Chart["date"][];
 }
 
 // * 차트의 X축 설정
-export const ChartXAxis: React.FC<ChartXAxisProps> = ({ visibleDates }) => {
+export const ChartXAxis: React.FC<ChartXAxisProps> = ({ dates }) => {
   return (
     <XAxis
-      dataKey="fullDate"
-      ticks={visibleDates}
+      dataKey="date"
+      type="number"
+      ticks={dates}
       tickFormatter={(value) => {
         const date = new Date(value);
         return format(date, "MMM dd, yyyy");

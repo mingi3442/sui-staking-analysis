@@ -1,3 +1,4 @@
+import { Chart } from "@/entities/chart";
 import React from "react";
 import { YAxis } from "recharts";
 import { ChartFilterOptionProps } from "../types/analytics-charts.types";
@@ -5,13 +6,13 @@ import { ChartFilterOptionProps } from "../types/analytics-charts.types";
 interface ChartYAxisProps {
   option: ChartFilterOptionProps;
   index: number;
-  data: any[];
+  data: Chart[];
 }
 
 // * 차트의 Y축 설정
 export const ChartYAxis: React.FC<ChartYAxisProps> = ({ option, index, data }) => {
   // * Y축에 렌더링될 최소, 최대, 중간값 계산
-  const values = data.map((item) => item[option.dataKey] as number);
+  const values = data.map((item) => item[option.dataKey]);
   const min = Math.min(...values);
   const max = Math.max(...values);
   const range = max - min;

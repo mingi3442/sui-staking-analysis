@@ -1,2 +1,2 @@
 export { ChartApi } from "./api/chart.api";
-export { type Chart } from "./model/chart.model";
+export { type Chart, type ChartDataKeyType } from "./model/chart.model";
