@@ -4,6 +4,7 @@ import { tcm } from "@/shared/libs";
 import { Discord, Open } from "@/shared/ui/icons";
 import * as React from "react";
 
+// * 화면의 오른쪽 중간에 나오는 FeedBack 컴포넌트
 export const FeedBack = () => {
   const [isHovered, setIsHovered] = React.useState<boolean>(false);
 

@@ -5,6 +5,7 @@ interface ChartTooltipProps {
   payload?: any[];
 }
 
+// * 차트 데이터에 대한 툴팁
 export const ChartTooltip = ({ active, payload }: ChartTooltipProps) => {
   if (active && payload && payload.length) {
     return (

@@ -1,10 +1,11 @@
 import React from "react";
 import { Line, LineProps } from "recharts";
+import { ChartFilterOptionProps } from "../types/analytics-charts.types";
 
 interface ChartLineProps extends LineProps {
   option: ChartFilterOptionProps;
 }
-
+// * 차트의 선을 그리는 컴포넌트
 export const ChartLine: React.FC<ChartLineProps> = ({ option }) => {
   return (
     <Line

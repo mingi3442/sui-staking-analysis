@@ -1,5 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 
+// * axios instance 설정 파일
 export const axiosInstance: AxiosInstance = axios.create({
   // * 배포를 위한 임시 URL
   baseURL: `${window.location.origin}/api/`,

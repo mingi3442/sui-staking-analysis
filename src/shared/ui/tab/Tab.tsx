@@ -1,10 +1,12 @@
+import * as React from "react";
 interface TabProps {
   tabs: string[];
   activeTab: string;
   onTabChange: (id: string) => void;
 }
 
-export const Tab = ({ tabs, activeTab, onTabChange }: TabProps) => {
+// * 문자열 배열를 받아서 탭을 만들는 컴포넌트
+export const Tab: React.FC<TabProps> = ({ tabs, activeTab, onTabChange }) => {
   return (
     <div className="flex bg-zinc-200/8 dark:bg-zinc-800/8">
       {tabs.map((tab) => (

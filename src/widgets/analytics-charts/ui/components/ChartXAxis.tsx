@@ -6,6 +6,7 @@ interface ChartXAxisProps {
   visibleDates: string[];
 }
 
+// * 차트의 X축 설정
 export const ChartXAxis: React.FC<ChartXAxisProps> = ({ visibleDates }) => {
   return (
     <XAxis

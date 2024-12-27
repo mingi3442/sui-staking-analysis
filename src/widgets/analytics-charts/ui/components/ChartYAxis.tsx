@@ -1,5 +1,6 @@
 import React from "react";
 import { YAxis } from "recharts";
+import { ChartFilterOptionProps } from "../types/analytics-charts.types";
 
 interface ChartYAxisProps {
   option: ChartFilterOptionProps;
@@ -7,7 +8,9 @@ interface ChartYAxisProps {
   data: any[];
 }
 
+// * 차트의 Y축 설정
 export const ChartYAxis: React.FC<ChartYAxisProps> = ({ option, index, data }) => {
+  // * Y축에 렌더링될 최소, 최대, 중간값 계산
   const values = data.map((item) => item[option.dataKey] as number);
   const min = Math.min(...values);
   const max = Math.max(...values);
@@ -15,6 +18,7 @@ export const ChartYAxis: React.FC<ChartYAxisProps> = ({ option, index, data }) =
   const step = range / 2;
   const ticks = [min, min + step, max];
 
+  // * 필터 아이디 유형에 따라 다른 단위와 포맷 적용
   const tickFormatter = (value: number) => {
     switch (option.id) {
       case "price":

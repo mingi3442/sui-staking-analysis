@@ -8,6 +8,7 @@ interface AnalyticsHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   clipboardUrl: string;
 }
 
+// * Analytics페이지의 공통 헤더 UI
 export const AnalyticsHeader: React.FC<AnalyticsHeaderProps> = ({ title, description, clipboardUrl, className, children, ...props }) => {
   return (
     <div className={tcm("w-full flex flex-col gapy-y-2 py-4", className)} {...props}>

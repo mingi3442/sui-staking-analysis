@@ -2,6 +2,7 @@ import { Logo } from "@/shared/ui/icons";
 import { Enterprise, FooterLink } from "./components";
 import { FOOTER_MENU_ITEMS } from "./constants/footer.const";
 
+// * 화면의 아래에 나오는 Footer 컴포넌트
 export const Footer = () => {
   return (
     <div className="w-full flex items-center justify-between border-t-2 border-black/10 dark:border-white/10 py-4">

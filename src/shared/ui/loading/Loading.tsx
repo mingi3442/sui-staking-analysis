@@ -1,3 +1,4 @@
+// * 로딩 상테시 사용되는 컴포넌트
 export const Loading = () => {
   return (
     <div className="flex flex-col items-center gap-4">

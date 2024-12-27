@@ -14,6 +14,7 @@ interface AnalyticsContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   contents: AnalyticsContainerContentProps[];
 }
 
+// * Analytics페이지의 공통 컨테이너 UI
 export const AnalyticsContainer: React.FC<AnalyticsContainerProps> = ({ tabs, children, footerTitle, footerDescription, onTabChange, activeTab, contents, className }) => {
   return (
     <div className="bg-zinc-100 dark:bg-zinc-800/60 border border-zinc-300 dark:border-zinc-800 rounded-lg overflow-hidden">

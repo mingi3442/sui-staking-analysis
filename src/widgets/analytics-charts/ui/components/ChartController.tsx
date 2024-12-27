@@ -6,6 +6,7 @@ interface ChartControllerProps {
   handleFilterClick: (id: string, exclusive?: boolean) => void;
 }
 
+// * 차트의 필터 컨트롤러 컴포넌트
 export const ChartController = ({ selectedFilters, handleFilterClick }: ChartControllerProps) => {
   return (
     <div className="flex items-center justify-between px-4">

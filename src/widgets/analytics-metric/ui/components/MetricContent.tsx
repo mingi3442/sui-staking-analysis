@@ -2,7 +2,7 @@ import { tcm } from "@/shared/libs";
 import { Expansion, SuiLogo } from "@/shared/ui/icons";
 import * as React from "react";
 
-interface MetricCardProps {
+interface MetricContentProps {
   title: string;
   value: string | number;
   changeRate: number | null;
@@ -11,7 +11,8 @@ interface MetricCardProps {
   valueClassName?: string;
 }
 
-export const MetricCard: React.FC<MetricCardProps> = ({ title, value, changeRate, position, className, valueClassName }) => {
+// * 메트릭 데이터 카드 컴포넌트
+export const MetricContent: React.FC<MetricContentProps> = ({ title, value, changeRate, position, className, valueClassName }) => {
   return (
     <div
       className={tcm(

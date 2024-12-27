@@ -1,3 +1,4 @@
+// * Barrel 패턴을 사용해서 Icon 내보내기
 export { Api } from "./Api";
 export { Clip } from "./Clip";
 export { Dark } from "./Dark";

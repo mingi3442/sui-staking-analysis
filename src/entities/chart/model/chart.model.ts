@@ -1,3 +1,4 @@
+// * 차트 데이터 모델
 export interface Chart {
   date: Date;
   price: number;

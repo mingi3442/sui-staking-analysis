@@ -14,24 +14,18 @@ export const PerformanceChartContent = () => {
   const { data, isLoading } = useQuery({
     queryKey: ["chartData"],
     queryFn: AnalyticsService().getAnalyticsChartData,
-    staleTime: 5 * 60 * 1000,
-    refetchInterval: 10 * 60 * 1000,
   });
 
   const handleFilterClick = (id: string, exclusive?: boolean) => {
     setSelectedFilters((prev) => {
-      if (prev.length === 1 && prev.includes(id)) {
-        return prev;
-      }
+      // * Reward Rate, inflation Rate의 경우에는 동시에 하나만 활성화하기 위한 로직
       if (exclusive) {
         const nonExclusiveFilters = prev.filter((f) => !CHART_FILTER_OPTIONS.find((opt) => opt.id === f)?.exclusive);
         return prev.includes(id) ? nonExclusiveFilters : [id, ...nonExclusiveFilters];
       }
-      if (prev.includes(id)) {
-        return prev.length === 1 ? prev : prev.filter((item) => item !== id);
-      } else {
-        return prev.length < 3 ? [id, ...prev] : prev;
-      }
+      // * 필터가 선택되어 있지 않은 경우 제거
+      // * 필터가 하나 남았을 경우 마지막 필터 제거를 방지
+      return prev.includes(id) ? (prev.length === 1 ? prev : prev.filter((item) => item !== id)) : [id, ...prev];
     });
   };
 

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { HEADER_MENU_ITEMS } from "./constants/header.const";
 
+// * 화면의 상단에 나오는 Header 컴포넌트
 export const Header = () => {
   const pathname = usePathname();
 

@@ -1,4 +1,6 @@
 import { Api, Discover, Optimize, Search, Stake, Summit, Swap } from "@/shared/ui/icons";
+
+// * 사이드 네비게이션 바에서 사용하는 아이콘
 export const ICONS = {
   Discover,
   Swap,
@@ -9,6 +11,7 @@ export const ICONS = {
   Summit,
 } as const;
 
+// * 사이드 네비게이션 바의 메뉴 리스트
 export const SIDE_NAVIGATION_BAR_MENU_ITEMS: {
   icon: keyof typeof ICONS;
   label: string;

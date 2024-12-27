@@ -13,7 +13,7 @@ interface ChartContainerProps {
   chartData: Chart[];
 }
 
-export const ChartContainer = ({ selectedFilters, setSelectedFilters, chartData }: ChartContainerProps) => {
+export const ChartContainer: React.FC<ChartContainerProps> = ({ selectedFilters, setSelectedFilters, chartData }) => {
   const visibleDates = React.useMemo(() => {
     if (!chartData) return [];
     const targetDates = [3, 12, 21, 30];

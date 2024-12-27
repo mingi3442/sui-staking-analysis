@@ -1,10 +1,8 @@
 "use client";
-
 import { tcm } from "@/shared/libs";
-
-import { Fragment } from "react";
+import * as React from "react";
 import { SIDE_NAVIGATION_BAR_MENU_ITEMS } from "../constants/side-navigation.const";
-import { useSideNavigationStore } from "../model/store";
+import { useSideNavigationStore } from "../stores/side-navigation.store";
 import { SideBarButton } from "./SideBarButton";
 import { ThemeToggle } from "./ThemeToggle";
 import { ToggleButton } from "./ToggleButton";
@@ -30,10 +28,10 @@ export const SideNavigationBar = () => {
             <div className="mt-2">
               {SIDE_NAVIGATION_BAR_MENU_ITEMS.slice(0, 5).map((item, index) => {
                 return (
-                  <Fragment key={item.href}>
+                  <React.Fragment key={item.href}>
                     {index === 4 && <div className="border-t-2 border-black/10 dark:border-white/10 mx-2" />}
                     <SideBarButton key={item.href} path={item.href} iconName={item.icon} label={item.label} isExpanded={isExpanded} />
-                  </Fragment>
+                  </React.Fragment>
                 );
               })}
             </div>
