@@ -1,4 +1,4 @@
-import { tcm } from "@/shared/utils/tailwind-merge";
+import { tcm } from "@/shared/libs/tailwind-merge";
 import * as React from "react";
 
 interface ButtonBaseProps<Component extends React.ElementType> {

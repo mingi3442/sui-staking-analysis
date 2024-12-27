@@ -1,14 +1,15 @@
 "use client";
 
-import { useSideNavigationStore } from "@/entities/side-navigation/model";
-import { tcm } from "@/shared/utils";
+import { tcm } from "@/shared/libs";
+
 import { Fragment } from "react";
-import { SIDE_NAVIGATION_BAR_MENU_ITEMS } from "../constants";
+import { SIDE_NAVIGATION_BAR_MENU_ITEMS } from "../constants/side-navigation.const";
+import { useSideNavigationStore } from "../model/store";
 import { SideBarButton } from "./SideBarButton";
 import { ThemeToggle } from "./ThemeToggle";
 import { ToggleButton } from "./ToggleButton";
 
-export function SideNavigationBar() {
+export const SideNavigationBar = () => {
   const { isExpanded, setSideNavigation } = useSideNavigationStore();
 
   return (
@@ -47,4 +48,4 @@ export function SideNavigationBar() {
       </aside>
     </section>
   );
-}
+};

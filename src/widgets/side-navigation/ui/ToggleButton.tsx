@@ -1,5 +1,5 @@
+import { tcm } from "@/shared/libs";
 import { SideBarToggle as SideBarToggleIcon } from "@/shared/ui/icons/SideBarToggle";
-import { tcm } from "@/shared/utils";
 import * as React from "react";
 
 interface ToggleButtonProps {

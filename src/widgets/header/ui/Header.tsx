@@ -1,9 +1,9 @@
 "use client";
+import { tcm } from "@/shared/libs";
 import { ArrowRight, Logo } from "@/shared/ui/icons";
-import { tcm } from "@/shared/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { HEADER_MENU_ITEMS } from "../constants";
+import { HEADER_MENU_ITEMS } from "./constants/header.const";
 
 export const Header = () => {
   const pathname = usePathname();

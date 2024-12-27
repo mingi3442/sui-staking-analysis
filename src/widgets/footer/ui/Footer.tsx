@@ -1,7 +1,6 @@
 import { Logo } from "@/shared/ui/icons";
-import { FOOTER_MENU_ITEMS } from "../constants";
-import { Enterprise } from "./Enterprise";
-import { FooterLink } from "./FooterLink";
+import { Enterprise, FooterLink } from "./components";
+import { FOOTER_MENU_ITEMS } from "./constants/footer.const";
 
 export const Footer = () => {
   return (

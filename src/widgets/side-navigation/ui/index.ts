@@ -1,1 +1,0 @@
-export { SideNavigationBar } from "./SideNavigationBar";

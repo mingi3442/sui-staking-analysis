@@ -1,7 +1,7 @@
 "use client";
 
+import { tcm } from "@/shared/libs";
 import { Discord, Open } from "@/shared/ui/icons";
-import { tcm } from "@/shared/utils";
 import * as React from "react";
 
 export const FeedBack = () => {

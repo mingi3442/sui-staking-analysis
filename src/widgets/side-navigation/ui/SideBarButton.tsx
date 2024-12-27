@@ -1,10 +1,10 @@
 "use client";
+import { tcm } from "@/shared/libs";
 import { Button } from "@/shared/ui";
-import { tcm } from "@/shared/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import * as React from "react";
-import { ICONS } from "../constants";
+import { ICONS } from "../constants/side-navigation.const";
 import { Tooltip } from "./Tooltip";
 
 interface SideBarButtonProps {

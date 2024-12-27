@@ -1,8 +1,8 @@
 "use client";
 
+import { tcm } from "@/shared/libs";
 import { Button } from "@/shared/ui";
 import { Dark, Light } from "@/shared/ui/icons";
-import { tcm } from "@/shared/utils";
 import { useTheme } from "next-themes";
 import * as React from "react";
 import { Tooltip } from "./Tooltip";
