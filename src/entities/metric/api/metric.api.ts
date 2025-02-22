@@ -1,6 +1,6 @@
 import { ApiResponse } from "@/shared/types";
 import { AxiosInstance } from "axios";
-import { Metric } from "../model/metric.model";
+import { Metric } from "../model/metric.types";
 
 // * Metric API Response 타입
 type MetricResponse = Promise<ApiResponse<Metric[]>>;
