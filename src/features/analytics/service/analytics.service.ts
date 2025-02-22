@@ -1,7 +1,5 @@
-import { ChartApi } from "@/entities/chart";
-import { ChartEntity } from "@/entities/chart/model/chart.model";
-import { MetricApi } from "@/entities/metric";
-import { MetricEntity } from "@/entities/metric/model/metric.model";
+import { ChartApi, ChartEntity } from "@/entities/chart";
+import { MetricApi, MetricEntity } from "@/entities/metric";
 import { axiosInstance } from "@/shared/config";
 import { AnalyticsUsecase } from "./usecase/analytics.usecase";
 

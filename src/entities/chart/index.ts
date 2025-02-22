@@ -1,2 +1,3 @@
 export { ChartApi } from "./api/chart.api";
-export { type Chart, type ChartDataKeyType } from "./model/chart.model";
+export { ChartEntity } from "./model/chart.model";
+export { type Chart, type ChartDataKeyType } from "./model/chart.types";

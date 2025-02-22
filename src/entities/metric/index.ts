@@ -1,2 +1,3 @@
 export { MetricApi } from "./api/metric.api";
-export { type Metric } from "./model/metric.model";
+export { MetricEntity } from "./model/metric.model";
+export { type Metric } from "./model/metric.types";
