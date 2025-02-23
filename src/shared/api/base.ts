@@ -1,15 +1,45 @@
+import { config } from "../config";
+import { ApiResponse } from "../types/api.types";
+
 interface ApiConfig extends RequestInit {
-  baseURL?: string;
+  baseURL: string;
 }
 
 export class ApiClient {
   private baseURL: string;
 
-  constructor(config: ApiConfig = {}) {
-    this.baseURL = config.baseURL || `${window.location.origin}/api/`;
+  constructor(config: ApiConfig) {
+    this.baseURL = config.baseURL;
   }
 
-  private async request<T>(url: string, config: RequestInit = {}): Promise<T> {
+  private async handleResponse<T>(response: Response): Promise<ApiResponse<T>> {
+    const responseData: ApiResponse<T> = {
+      data: {} as T,
+      status: response.status,
+      statusText: response.statusText,
+      ok: response.ok,
+      message: "",
+    };
+
+    try {
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        responseData.message = errorData.message || `HTTP error! Status: ${response.status}`;
+        throw responseData;
+      }
+
+      const data = await response.json();
+      responseData.data = data;
+      return responseData;
+    } catch (error) {
+      if (error instanceof Error) {
+        responseData.message = error.message;
+      }
+      throw responseData;
+    }
+  }
+
+  private async request<T>(url: string, config: RequestInit = {}): Promise<ApiResponse<T>> {
     try {
       const fullUrl = this.baseURL + url;
       const response = await fetch(fullUrl, {
@@ -20,21 +50,26 @@ export class ApiClient {
         },
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      return response.json();
+      return this.handleResponse<T>(response);
     } catch (error) {
-      return Promise.reject(error);
+      if (error instanceof Error) {
+        throw {
+          data: {} as T,
+          status: 500,
+          statusText: "Internal Server Error",
+          ok: false,
+          message: error.message,
+        } as ApiResponse<T>;
+      }
+      throw error;
     }
   }
 
-  async get<T>(url: string, config: RequestInit = {}): Promise<T> {
+  async get<T>(url: string, config: RequestInit = {}): Promise<ApiResponse<T>> {
     return this.request<T>(url, { ...config, method: "GET" });
   }
 
-  async post<T>(url: string, data?: any, config: RequestInit = {}): Promise<T> {
+  async post<T>(url: string, data?: any, config: RequestInit = {}): Promise<ApiResponse<T>> {
     return this.request<T>(url, {
       ...config,
       method: "POST",
@@ -42,7 +77,7 @@ export class ApiClient {
     });
   }
 
-  async put<T>(url: string, data?: any, config: RequestInit = {}): Promise<T> {
+  async put<T>(url: string, data?: any, config: RequestInit = {}): Promise<ApiResponse<T>> {
     return this.request<T>(url, {
       ...config,
       method: "PUT",
@@ -50,9 +85,9 @@ export class ApiClient {
     });
   }
 
-  async delete<T>(url: string, config: RequestInit = {}): Promise<T> {
+  async delete<T>(url: string, config: RequestInit = {}): Promise<ApiResponse<T>> {
     return this.request<T>(url, { ...config, method: "DELETE" });
   }
 }
 
-export const apiClient = new ApiClient();
+export const apiClient = new ApiClient({ baseURL: config.api.baseURL });
