@@ -9,7 +9,7 @@ export class ApiClient {
   private baseURL: string;
 
   constructor(config: ApiConfig) {
-    this.baseURL = config.baseURL;
+    this.baseURL = config.baseURL || `${window.location.origin}/api/`;
   }
 
   private async handleResponse<T>(response: Response): Promise<ApiResponse<T>> {
