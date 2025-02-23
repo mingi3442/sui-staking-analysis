@@ -9,7 +9,8 @@ export class ApiClient {
   private baseURL: string;
 
   constructor(config: ApiConfig) {
-    this.baseURL = config.baseURL || `${window.location.origin}/api/`;
+    // * API Base URL
+    this.baseURL = config.baseURL || (typeof window !== "undefined" ? `${window.location.origin}/api/` : "http://localhost:3000/api/");
   }
 
   private async handleResponse<T>(response: Response): Promise<ApiResponse<T>> {
